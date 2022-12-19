@@ -17,7 +17,7 @@ export class FcmService {
       data: data,
       notification: content,
     };
-    Fcm().sendToDevice(tokens, payload);
+    await Fcm().sendToDevice(tokens, payload);
   }
 
   async sendFcmToTopics(
@@ -30,13 +30,13 @@ export class FcmService {
       notification: content,
     };
     for (const topic of topics) {
-      Fcm().sendToTopic(topic, payload);
+      await Fcm().sendToTopic(topic, payload);
     }
   }
 
   async subscribeToTopic(tokens: string[], topics: string[]): Promise<void> {
     for (const topic of topics) {
-      Fcm().subscribeToTopic(tokens, topic);
+      await Fcm().subscribeToTopic(tokens, topic);
     }
   }
 
@@ -45,7 +45,7 @@ export class FcmService {
     topics: string[],
   ): Promise<void> {
     for (const topic of topics) {
-      Fcm().unsubscribeFromTopic(tokens, topic);
+      await Fcm().unsubscribeFromTopic(tokens, topic);
     }
   }
 }
