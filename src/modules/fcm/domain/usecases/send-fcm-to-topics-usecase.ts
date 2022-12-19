@@ -11,6 +11,6 @@ export class SendFcmToTopicsUsecase {
     content: Fcm.NotificationMessagePayload,
     data: Fcm.DataMessagePayload,
   ): Promise<void> {
-    await this.fcmRepository.sendFcmToTokens(topics, content, data);
+    await this.fcmRepository.sendFcmToTopics(topics, content, data);
   }
 }

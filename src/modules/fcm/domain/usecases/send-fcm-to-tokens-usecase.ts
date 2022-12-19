@@ -7,10 +7,10 @@ export class SendFcmToTokensUsecase {
   constructor(private readonly fcmRepository: FcmRepository) {}
 
   async call(
-    token: string[],
+    tokens: string[],
     content: Fcm.NotificationMessagePayload,
     data: Fcm.DataMessagePayload,
   ): Promise<void> {
-    await this.fcmRepository.sendFcmToTokens(token, content, data);
+    await this.fcmRepository.sendFcmToTokens(tokens, content, data);
   }
 }

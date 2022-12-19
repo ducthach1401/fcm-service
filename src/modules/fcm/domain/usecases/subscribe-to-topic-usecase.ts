@@ -5,7 +5,7 @@ import { FcmRepository } from '../repositories/fcm-repository';
 export class SubscribeToTopicUsecase {
   constructor(private readonly fcmRepository: FcmRepository) {}
 
-  async call(token: string[], topic: string[]): Promise<void> {
-    await this.fcmRepository.subscribeToTopic(token, topic);
+  async call(tokens: string[], topics: string[]): Promise<void> {
+    await this.fcmRepository.subscribeToTopic(tokens, topics);
   }
 }
